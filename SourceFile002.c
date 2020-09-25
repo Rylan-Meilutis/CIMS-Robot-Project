@@ -4,9 +4,24 @@
 
 task main()
 {
-while(true){
-motor[leftMotor]=50;
-motor[rightMotor]=50;
-}
-
+	int rvalue = 2048;
+	int lvalue= 2048;
+	while(true){
+		if(rsensor>rvalue && lsensor>lvalue){
+		motor[leftMotor]=50;
+		motor[rightMotor]=50;
+		}
+		else if(rsensor > rvalue && lsensor < lvalue){
+		motor[leftMotor]=50;
+		motor[rightMotor]=40;
+		}
+		else if(rsensor < rvalue && lsensor > lvalue){
+		motor[leftMotor]=40;
+		motor[rightMotor]=50;
+		}
+		else if(rsensor < rvalue && lsensor < lvalue){
+		motor[leftMotor]=-50;
+		motor[rightMotor]=-50;
+		}
+	}
 }
