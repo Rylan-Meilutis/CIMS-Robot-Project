@@ -29,7 +29,7 @@ task main()
 			}
 		else{
 			motor[leftMotor]= 0 ;
-				motor[rightMotor] = 0;
+			motor[rightMotor] = 0;
 		}
 	}
 	while(modeSelector == 1){
