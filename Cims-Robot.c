@@ -1,7 +1,7 @@
-#pragma config(Sensor, port1,  rightsensor,        sensorVexIQ_ColorGrayscale)
-#pragma config(Sensor, port2,  leftsensor,        sensorVexIQ_ColorGrayscale)
-#pragma config(Motor,  motor1,          leftMotor,     tmotorNone, openLoop, driveLeft)
-#pragma config(Motor,  motor2,          rightMotor,    tmotorNone, openLoop, driveRight)
+#pragma config(Sensor, in1,    rightsensor,    sensorLineFollower)
+#pragma config(Sensor, in2,    leftsensor,     sensorLineFollower)
+#pragma config(Motor,  port1,           leftMotor,     tmotorNone, openLoop, driveLeft)
+#pragma config(Motor,  port2,           rightMotor,    tmotorNone, openLoop, driveRight)
 
 task main()
 {
