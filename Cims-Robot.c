@@ -11,13 +11,13 @@ task main()
 	int modeSelector = 0;//0 for line follow one foe teliop
 
 	while(modeSelector == 0){
-			if(vexRT[e] == 1){
-				modeSelector =1;
-			}	
-			else{
-			modeSelector = 0;	
+			if(vexRT[Btn6D] == 1){
+				modeSelector = 1;
 			}
-	
+			else{
+			modeSelector = 0;
+			}
+
 			if(SensorValue(rightsensor) > cValue && SensorValue(leftsensor) > cValue){
 				motor[leftMotor] = 50;
 				motor[rightMotor] = 50;
@@ -41,11 +41,11 @@ task main()
 		}
 	}
 	while(modeSelector == 1){
-		if(vexRT[e] == 1){
-				modeSelector =1;
-			}	
+		if(vexRT[Btn6D] == 1){
+				modeSelector = 1;
+			}
 		else{
-		modeSelector = 0;	
+		modeSelector = 0;
 		}
 			// set left side motors
 			motor[leftMotor] = (vexRT[Ch3] + vexRT[Ch4]);
