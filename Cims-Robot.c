@@ -38,11 +38,17 @@ task main()
 		}
 
 	while(modeSelector == 1){
+		if(vexRT[Btn6D] == 1){
+			modeSelector = 1;
+			}
+		else{
+			modeSelector = 0;
+		}
 			// set left side motors
-			motor[leftMotor] = (vexRT[Ch3] + vexRT[Ch4]);
+		motor[leftMotor] = (vexRT[Ch3] + vexRT[Ch4]);
 
 			// set right side motors
-			motor[rightMotor] = (vexRT[Ch3] - vexRT[Ch4]);
+		motor[rightMotor] = (vexRT[Ch3] - vexRT[Ch4]);
 
 		}
 }
