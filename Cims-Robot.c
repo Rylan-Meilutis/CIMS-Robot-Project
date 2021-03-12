@@ -17,11 +17,11 @@ task main()
 	while(true){
 	if(SensorValue[touch] == 1 && modeSelector == 0){
 	 modeSelector=1;
-	 wait(0.1);
+	 wait(0.2);
 	}
 	else if(SensorValue[touch] == 1 && modeSelector == 1){
 	 modeSelector=0;
-	 wait(0.1);
+	 wait(0.2);
 	 }
 
 		if(modeSelector ==0){
