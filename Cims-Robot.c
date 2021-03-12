@@ -24,7 +24,7 @@ task main()
 	 wait(0.2);
 	 }
 
-		if(modeSelector ==0){
+		if(modeSelector == 0){
 			followLine(threshold, timer);
 		}
 		else{
@@ -35,7 +35,7 @@ task main()
 }
 
 void followLine(int threshold, int timer){
-	if(timer >=200 && SensorValue(lineFollowerLEFT) > threshold && SensorValue(lineFollowerCENTER) > threshold && SensorValue(lineFollowerRIGHT) > threshold)
+	if(timer >= 200 && SensorValue(lineFollowerLEFT) > threshold && SensorValue(lineFollowerCENTER) > threshold && SensorValue(lineFollowerRIGHT) > threshold)
     {
     	timer++;
       // counter-steer left:
@@ -72,7 +72,7 @@ void followLine(int threshold, int timer){
 	}
 }
 void control(){
-	if(vexRT[Ch3] > 0.02 || vexRT[Ch4]>0.02){
+	if(vexRT[Ch3] > 0.02 || vexRT[Ch4] > 0.02){
 	motor[leftMotor] = (vexRT[Ch3] + vexRT[Ch4]);
 
 			// set right side motors
