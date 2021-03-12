@@ -43,22 +43,22 @@ void followLine(int threshold, int timer){
       motor[rightMotor] = 0;
     }
     else{
-	if(SensorValue(lineFollowerRIGHT) > threshold)
+	if(SensorValue(lineFollowerCENTER) > threshold)
+    {
+      // go straight
+      motor[leftMotor]  = 63;
+      motor[rightMotor] = 63;
+    }
+    // CENTER sensor sees dark:
+    else if(SensorValue(lineFollowerRIGHT) > threshold)
     {
     	timer = 0;
       // counter-steer right:
       motor[leftMotor]  = 63;
       motor[rightMotor] = -63;
     }
-    // CENTER sensor sees dark:
-    if(SensorValue(lineFollowerCENTER) > threshold)
-    {
-      // go straight
-      motor[leftMotor]  = 63;
-      motor[rightMotor] = 63;
-    }
     // LEFT sensor sees dark:
-    if(SensorValue(lineFollowerLEFT) > threshold)
+    else if(SensorValue(lineFollowerLEFT) > threshold)
     {
       // counter-steer left:
       motor[leftMotor]  = -63;
