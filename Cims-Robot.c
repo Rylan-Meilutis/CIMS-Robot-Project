@@ -9,19 +9,27 @@
 
 void control();
 void followLine(int threshold, int timer);
+bool isButtonPressed(int press);
 task main()
 {
+
+
 	int threshold = 2680;//value for if the colorsensor is on the line or not
 	int modeSelector = 0;
 	int timer = 0;
+	bool buttonPressed = false;
 	while(true){
-		if(SensorValue[touch] == 1 && modeSelector == 0){
-			modeSelector=1;
-			wait(0.2);
+	 buttonPressed = isButtonPressed(SensorValue[touch]);
+
+
+
+		if(buttonPressed && modeSelector == 0){
+			modeSelector = 1;
+			buttonPressed = false;
 		}
-		else if(SensorValue[touch] == 1 && modeSelector == 1){
+		else if(buttonPressed && modeSelector == 1){
 			modeSelector=0;
-			wait(0.2);
+			buttonPressed = false;
 		}
 
 		if(modeSelector == 0){
@@ -81,3 +89,38 @@ void control(){
 		motor[rightMotor] = 0;
 	}
 }
+bool isButtonPressed(int press){
+#define BUTTON_DEBOUNCE_CHECKS 100
+static unsigned int buttonState = 0;
+    static char buttonPressEnabled = 1;
+
+    if(press){
+        if(buttonState < BUTTON_DEBOUNCE_CHECKS)
+        {
+            buttonState++;
+        }
+        else if(buttonPressEnabled)
+        {
+            buttonPressEnabled = 0;
+            return true;
+        }
+      }
+    else if(buttonState > 0 )
+    {
+        buttonState--;
+        // alternatively you can set buttonState to 0 here, but I prefer this way
+    }
+    else
+    {
+        buttonPressEnabled = 1;
+    }
+
+    return false;
+}
+
+//if ((0 & 1 << (button - 1)) != 0) {
+  //        0 &= ~(1 << (button - 1));
+    //      return true;
+      //  }
+        //else {
+        //return false;
