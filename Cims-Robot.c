@@ -1,3 +1,4 @@
+
 #pragma config(Sensor, in1,    lineFollowerRIGHT, sensorLineFollower)
 #pragma config(Sensor, in2,    lineFollowerCENTER, sensorLineFollower)
 #pragma config(Sensor, in3,    lineFollowerLEFT, sensorLineFollower)
@@ -47,17 +48,14 @@ task main()
 }
 
 void followLine(int threshold, bool backup){
-	if(SensorValue[resume] == 0 && SensorValue(stopRobot) > 2800)
+	if(SensorValue[resume] == 0 && SensorValue(stopRobot) > 2900)
 	{
 		if(backup == false){
-		motor[leftMotor]  = -10;
-		motor[rightMotor] = -10;
-		wait(1);
+				motor[leftMotor]  = 0;
+		motor[rightMotor] = 0;
+		untilBump(resume);
 		backup = true;
 		}
-		motor[leftMotor]  = 0;
-		motor[rightMotor] = 0;
-		turnLEDOn(led);
 	}
 	else{
 		backup = false;
