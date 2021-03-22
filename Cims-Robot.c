@@ -15,6 +15,7 @@ void control();
 void followLine(int threshold, bool backup);
 bool isButtonPressed(int press);
 bool backup = false;
+bool toggleController = false;
 task main()
 {
 
@@ -88,16 +89,15 @@ void followLine(int threshold, bool backup){
 	}
 }
 void control(){
-	//if(vexRT[Ch3] > 0.02 || vexRT[Ch4] > 0.02){
-		//motor[leftMotor] = (vexRT[Ch3] + vexRT[Ch4]);
-
-		// set right side motors
-		//motor[rightMotor] = (vexRT[Ch3] - vexRT[Ch4]);
-	//}
-	//else{
+	if(toggleController){
+		motor[leftMotor] = (vexRT[Ch3] + vexRT[Ch4]);
+	  //set right side motors
+		motor[rightMotor] = (vexRT[Ch3] - vexRT[Ch4]);
+	}
+	else{
 		stopMotor(leftMotor);
 		stopMotor(rightMotor);
-	//}
+	}
 }
 bool isButtonPressed(int press){
 #define BUTTON_DEBOUNCE_CHECKS 100
