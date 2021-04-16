@@ -90,9 +90,9 @@ void followLine(int threshold, bool backup){
 }
 void control(){
 	if(toggleController){
-		motor[leftMotor] = (vexRT[Ch3] + vexRT[Ch4]);
+		motor[leftMotor] = (vexRT[Ch3] + vexRT[Ch1]);
 	  //set right side motors
-		motor[rightMotor] = (vexRT[Ch3] - vexRT[Ch4]);
+		motor[rightMotor] = (vexRT[Ch3] - vexRT[Ch1]);
 	}
 	else{
 		stopMotor(leftMotor);
